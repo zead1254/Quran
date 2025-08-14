@@ -5,19 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>تلاوات د. محمد نبيل | موقع رسمي</title>
   <meta name="description" content="تلاوات قرآنية بصوت د. محمد نبيل ." />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#ffffff;
-      --text:#0b1f17;
-      --muted:#506a60; /* نص ثانوي */
+      --bg:#f8f5f0; /* لون خلفية إسلامي فاتح */
+      --text:#2a2118; /* لون نص دافئ */
+      --muted:#6b5d4d; /* نص ثانوي */
       --green:#1b6b43; /* أخضر أساسي */
       --olive:#2e5e4e; /* زيتي غامق */
-      --mint:#e8f5ee;  /* خلفية فاتحة خضراء */
-      --gold:#c9a227;  /* لمسة ذهبية لطيفة */
-      --card:#ffffff;
-      --shadow: 0 10px 25px rgba(0,0,0,.07);
-      --radius: 20px;
+      --gold:#c9a227;  /* لون ذهبي */
+      --card:#fff9f0; /* لون بطاقات */
+      --shadow: 0 10px 25px rgba(0,0,0,.05);
+      --radius: 12px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -26,12 +25,12 @@
       overflow-x:hidden;
     }
 
-    /* خلفية زخرفية إسلامية متحركة (خفيفة وناعمة) */
-    .pattern{position:fixed; inset:0; z-index:-2; opacity:.6; filter:saturate(0.9);}
+    /* خلفية زخرفية إسلامية متحركة */
+    .pattern{position:fixed; inset:0; z-index:-2; opacity:.4; filter:saturate(0.9);}
     .pattern::before{
       content:""; position:absolute; inset:-20%; z-index:-2; transform-origin:50% 50%;
       background:
-        radial-gradient(circle at 25% 25%, rgba(27,107,67,.06) 0 18%, transparent 19%) 0 0/90px 90px,
+        radial-gradient(circle at 25% 25%, rgba(201,162,39,.06) 0 18%, transparent 19%) 0 0/90px 90px,
         radial-gradient(circle at 75% 75%, rgba(27,107,67,.06) 0 18%, transparent 19%) 0 0/90px 90px,
         conic-gradient(from 45deg at 50% 50%, rgba(201,162,39,.05) 0 25%, transparent 0 100%);
       animation: rotateBg 90s linear infinite;
@@ -40,8 +39,9 @@
 
     /* شريط علوي */
     header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(1.2) blur(8px);
-      background:color-mix(in oklab, white 85%, #e8f5ee 15%);
-      border-bottom:1px solid rgba(27,107,67,.08);
+      background:rgba(248,245,240,.92);
+      border-bottom:1px solid rgba(201,162,39,.15);
+      box-shadow:0 2px 15px rgba(0,0,0,.05);
     }
     .nav{max-width:1200px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:12px 20px;}
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
@@ -53,61 +53,70 @@
 
     /* البطل */
     .hero{position:relative; max-width:1200px; margin:24px auto 18px; padding:20px; display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center}
-    .heroCard{background:linear-gradient(180deg, color-mix(in oklab, #fff 85%, #e8f5ee 15%), #fff);
-      border:1px solid rgba(27,107,67,.12); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px}
+    .heroCard{background:rgba(255,255,255,.7); border:1px solid rgba(201,162,39,.15); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px}
     .title{font-size:2.1rem; line-height:1.25; margin:0 0 8px; color:var(--olive)}
     .subtitle{color:var(--muted); margin:0 0 18px}
     .cta{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{appearance:none; border:none; border-radius:16px; padding:12px 16px; font-weight:700; cursor:pointer}
-    .btn.primary{background:linear-gradient(135deg, var(--green), var(--olive)); color:#fff}
+    .btn{appearance:none; border:none; border-radius:16px; padding:12px 16px; font-weight:700; cursor:pointer; transition:all .2s}
+    .btn.primary{background:linear-gradient(135deg, var(--green), var(--olive)); color:#fff; box-shadow:0 4px 12px rgba(27,107,67,.2)}
     .btn.ghost{background:#fff; color:var(--green); border:1px solid rgba(27,107,67,.25)}
-    .btn:hover{transform:translateY(-1px)}
+    .btn:hover{transform:translateY(-2px); box-shadow:0 6px 15px rgba(0,0,0,.1)}
     .profile{display:flex; gap:16px; align-items:center}
-    .avatar{width:96px; height:96px; border-radius:50%; border:3px solid var(--mint); box-shadow:0 6px 15px rgba(0,0,0,.08); object-fit:cover}
-    .badge{display:inline-flex; gap:8px; align-items:center; color:var(--green); background:var(--mint); border:1px dashed rgba(27,107,67,.35); padding:6px 10px; border-radius:999px; font-weight:700}
+    .avatar{width:96px; height:96px; border-radius:50%; border:3px solid rgba(201,162,39,.3); box-shadow:0 6px 15px rgba(0,0,0,.08); object-fit:cover}
+    .badge{display:inline-flex; gap:8px; align-items:center; color:var(--green); background:rgba(27,107,67,.1); border:1px dashed rgba(27,107,67,.35); padding:6px 10px; border-radius:999px; font-weight:700}
 
     /* قسم التلاوات */
     .section{max-width:1200px; margin:8px auto 40px; padding:0 20px}
-    .section h2{margin:22px 0 14px; color:var(--olive)}
+    .section h2{margin:22px 0 14px; color:var(--olive); position:relative; padding-right:15px}
+    .section h2::before{content:""; position:absolute; right:0; top:50%; transform:translateY(-50%); width:8px; height:24px; background:linear-gradient(to bottom, var(--green), var(--olive)); border-radius:4px}
     .tools{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin:8px 0 18px}
-    .tools input[type="search"]{flex:1 1 260px; padding:12px 14px; border-radius:14px; border:1px solid rgba(27,107,67,.25); outline:none}
-    .tools select{padding:12px 14px; border-radius:14px; border:1px solid rgba(27,107,67,.25)}
+    .tools input[type="search"]{flex:1 1 260px; padding:12px 14px; border-radius:14px; border:1px solid rgba(201,162,39,.25); outline:none; background:rgba(255,255,255,.7); font-family:inherit}
+    .tools select{padding:12px 14px; border-radius:14px; border:1px solid rgba(201,162,39,.25); background:rgba(255,255,255,.7); font-family:inherit}
 
-    .grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px}
-    @media (max-width:1000px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+    .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px}
     @media (max-width:620px){.grid{grid-template-columns:1fr}}
 
-    .card{background:var(--card); border:1px solid rgba(27,107,67,.12); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
+    .card{background:var(--card); border:1px solid rgba(201,162,39,.15); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:all .2s}
+    .card:hover{transform:translateY(-5px); box-shadow:0 15px 30px rgba(0,0,0,.08)}
     .cover{position:relative; aspect-ratio:16/9; background:linear-gradient(135deg, #f6faf7, #fff)}
     .cover img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
-    .cover .label{position:absolute; inset:auto 12px 12px 12px; background:rgba(255,255,255,.9); border:1px solid rgba(27,107,67,.2); color:var(--olive); padding:6px 10px; border-radius:12px; font-weight:700}
+    .cover .label{position:absolute; inset:auto 12px 12px 12px; background:rgba(255,255,255,.9); border:1px solid rgba(201,162,39,.2); color:var(--olive); padding:6px 10px; border-radius:12px; font-weight:700; backdrop-filter:blur(4px)}
     .meta{padding:12px 14px 8px}
-    .meta h3{margin:0 0 6px; font-size:1.05rem; color:var(--green)}
+    .meta h3{margin:0 0 6px; font-size:1.05rem; color:var(--green); font-weight:800}
     .meta p{margin:0; color:var(--muted); font-size:.95rem}
     .actions{display:flex; gap:10px; align-items:center; padding:12px 14px 16px}
-    .actions .play{flex:1; background:linear-gradient(135deg, var(--green), var(--olive)); color:#fff; border:none; padding:10px 14px; border-radius:12px; font-weight:800; cursor:pointer}
-    .actions .dl{background:#fff; border:1px solid rgba(27,107,67,.25); color:var(--olive); padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none}
-    .nowPlaying{outline:2px solid var(--gold)}
+    .actions .play{flex:1; background:linear-gradient(135deg, var(--green), var(--olive)); color:#fff; border:none; padding:10px 14px; border-radius:12px; font-weight:800; cursor:pointer; transition:all .2s}
+    .actions .play:hover{transform:translateY(-2px); box-shadow:0 4px 12px rgba(27,107,67,.3)}
+    .actions .dl{background:#fff; border:1px solid rgba(201,162,39,.25); color:var(--olive); padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none; transition:all .2s}
+    .actions .dl:hover{transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.1)}
+    .nowPlaying{outline:2px solid var(--gold); box-shadow:0 15px 30px rgba(201,162,39,.2)}
 
     /* عن الشيخ + تواصل */
-    .about, .contact{background:color-mix(in oklab, #fff 92%, #e8f5ee 8%); border:1px solid rgba(27,107,67,.12); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px}
+    .about, .contact{background:rgba(255,255,255,.7); border:1px solid rgba(201,162,39,.15); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px}
     .contact a{color:var(--green); font-weight:700}
 
     /* مُشغّل ثابت أسفل الصفحة */
-    .player{position:sticky; bottom:0; z-index:50; background:linear-gradient(180deg, #fff, #f7fbf9);
-      border-top:1px solid rgba(27,107,67,.15); box-shadow:0 -8px 24px rgba(0,0,0,.06);}
-    .playerInner{max-width:1200px; margin:auto; padding:10px 14px; display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:center}
-    .miniCover{width:52px; height:52px; border-radius:12px; overflow:hidden; border:1px solid rgba(27,107,67,.25); box-shadow:var(--shadow)}
+    .player{position:sticky; bottom:0; z-index:50; background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,245,240,.95));
+      border-top:1px solid rgba(201,162,39,.15); box-shadow:0 -8px 24px rgba(0,0,0,.06);
+      transform:translateY(100%); transition:transform .3s ease;
+    }
+    .player.show{transform:translateY(0)}
+    .playerInner{max-width:1200px; margin:auto; padding:10px 14px; display:grid; grid-template-columns:auto 1fr auto auto; gap:12px; align-items:center; position:relative}
+    .miniCover{width:52px; height:52px; border-radius:12px; overflow:hidden; border:1px solid rgba(201,162,39,.25); box-shadow:var(--shadow)}
     .trackInfo{min-width:0}
     .trackTitle{font-weight:800; color:var(--olive); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
     .trackSub{font-size:.9rem; color:var(--muted)}
     .controls{display:flex; align-items:center; gap:10px}
-    .iconBtn{width:42px; height:42px; border-radius:999px; border:1px solid rgba(27,107,67,.25); background:#fff; display:grid; place-items:center; cursor:pointer}
-    .iconBtn.primary{background:linear-gradient(135deg, var(--green), var(--olive)); color:#fff; border:none; width:50px; height:50px; font-weight:800}
+    .iconBtn{width:42px; height:42px; border-radius:999px; border:1px solid rgba(201,162,39,.25); background:#fff; display:grid; place-items:center; cursor:pointer; transition:all .2s}
+    .iconBtn:hover{transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,.1)}
+    .iconBtn.primary{background:linear-gradient(135deg, var(--green), var(--olive)); color:#fff; border:none; width:50px; height:50px; font-weight:800; box-shadow:0 4px 12px rgba(27,107,67,.3)}
+    .iconBtn.primary:hover{transform:translateY(-2px); box-shadow:0 6px 15px rgba(27,107,67,.4)}
     .progressWrap{grid-column:1/-1; display:flex; align-items:center; gap:10px; padding:0 4px}
-    input[type="range"]{appearance:none; width:100%; height:8px; background:var(--mint); border-radius:999px; outline:none}
+    input[type="range"]{appearance:none; width:100%; height:8px; background:rgba(201,162,39,.15); border-radius:999px; outline:none}
     input[type="range"]::-webkit-slider-thumb{appearance:none; width:18px; height:18px; background:var(--green); border-radius:50%; border:2px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,.18)}
     .time{font-variant-numeric:tabular-nums; color:var(--muted); font-weight:700}
+    .closeBtn{width:36px; height:36px; border-radius:50%; background:rgba(0,0,0,.05); display:grid; place-items:center; cursor:pointer; transition:all .2s}
+    .closeBtn:hover{background:rgba(0,0,0,.1); transform:rotate(90deg)}
 
     footer{max-width:1200px; margin:20px auto 70px; padding:0 20px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
     footer b{color:var(--olive)}
@@ -148,12 +157,9 @@
       <h1 class="title">بسم الله — تلاوات <span style="color:var(--green)">د. محمد نبيل</span></h1>
       <p class="subtitle">تسجيلات صوتية مرتلة بتلاوة خاشعة، مع واجهة نظيفة وألوان إسلامية.</p>
       <div class="profile" style="margin-bottom:14px">
-        <!--
-          ✅ استبدل مسار الصورة التالية بصورة الشيخ (مثلاً: images/dr-mohamed-nabil.jpg)
-          ملاحظة: يُستحب رفع صورة مربعة عالية الدقة.
-        -->
-        <img class="avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%231b6b43'/%3E%3Cstop offset='1' stop-color='%232e5e4e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='240' height='240' rx='28' fill='url(%23g)'/%3E%3Ccircle cx='120' cy='90' r='44' fill='%23fff' fill-opacity='.9'/%3E%3Cpath d='M40 204c16-36 48-56 80-56s64 20 80 56' fill='%23fff' fill-opacity='.9'/%3E%3C/svg%3E" alt="صورة د. محمد نبيل"/>
-        <div>
+        <!-- استبدل مسار الصورة التالية بصورة الشيخ -->
+      <img class="avatar" src="dr-nabil.jpg" alt="صورة د. محمد نبيل"/>
+  <div>
           <div class="badge" aria-label="الصفة">قارئ القرآن الكريم</div>
           <div style="margin-top:8px; color:var(--muted)">مرحبا بكم في الموقع الرسمي للتلاوات.</div>
         </div>
@@ -191,7 +197,8 @@
   <!-- عن الشيخ -->
   <section class="section" id="about">
     <div class="about">
-      <h2>عن الشيخ</h2></p>
+      <h2>عن الشيخ</h2>
+      <p>الدكتور محمد نبيل هو قارئ القرآن الكريم المعروف بصوته العذب وتلاوته الخاشعة. يتميز بإتقانه لأحكام التجويد وتفسيره الواضح للآيات.</p>
     </div>
   </section>
 
@@ -208,7 +215,7 @@
   </section>
 
   <!-- مشغّل سفلي ثابت -->
-  <div class="player" role="region" aria-label="مشغّل الصوت">
+  <div class="player" role="region" aria-label="مشغّل الصوت" id="audioPlayer">
     <div class="playerInner">
       <img id="miniCover" class="miniCover" alt="غلاف التلاوة" src="" />
       <div class="trackInfo">
@@ -229,6 +236,11 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 5v14" stroke="currentColor" stroke-width="2"/><path d="M5 6l9 6-9 6V6z" fill="currentColor"/></svg>
         </button>
       </div>
+      <button id="closeBtn" class="closeBtn" aria-label="إغلاق المشغل" title="إغلاق">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6l12 12" stroke="var(--muted)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
       <div class="progressWrap">
         <span id="currentTime" class="time">00:00</span>
         <input id="seek" type="range" min="0" max="1000" value="0" aria-label="شريط التقدم"/>
@@ -248,12 +260,46 @@
     // إذا لم تكن الملفات موجودة، سيظهر تنبيه عند محاولة التشغيل.
 
     const tracks = [
-      { id: 1, surah: "الفاتحة", from: 1, to: 7, src: "audio/fatiha.mp3" },
-      { id: 2, surah: "البقرة", from: 1, to: 5, src: "audio/baqarah-1-5.mp3" },
-      { id: 3, surah: "الكهف", from: 1, to: 10, src: "audio/alkahf-1-10.mp3" },
-      { id: 4, surah: "يس", from: 1, to: 20, src: "audio/ya-seen-1-20.mp3" },
-      { id: 5, surah: "الرحمن", from: 1, to: 30, src: "audio/arrahman-1-30.mp3" },
-      { id: 6, surah: "الملك", from: 1, to: 15, src: "audio/almulk-1-15.mp3" }
+      { id: 1, surah: "الفاتحة", from: 1, to: 7, src: "m1.mp3" },
+      { id: 2, surah: "البقرة", from: 1, to: 5, src: "m2.mp3" },
+      { id: 3, surah: "البقرة", from: 6, to: 10, src: "m3.mp3" },
+      { id: 4, surah: "البقرة", from: 11, to: 15, src: "m4.mp3" },
+      { id: 5, surah: "البقرة", from: 16, to: 20, src: "m5.mp3" },
+      { id: 6, surah: "البقرة", from: 21, to: 25, src: "m6.mp3" },
+      { id: 7, surah: "البقرة", from: 26, to: 30, src: "m7.mp3" },
+      { id: 8, surah: "البقرة", from: 31, to: 35, src: "m8.mp3" },
+      { id: 9, surah: "البقرة", from: 36, to: 40, src: "m9.mp3" },
+      { id: 10, surah: "البقرة", from: 41, to: 45, src: "m10.mp3" },
+      { id: 11, surah: "البقرة", from: 46, to: 50, src: "m11.mp3" },
+      { id: 12, surah: "البقرة", from: 51, to: 55, src: "m12.mp3" },
+      { id: 13, surah: "البقرة", from: 56, to: 60, src: "m13.mp3" },
+      { id: 14, surah: "البقرة", from: 61, to: 65, src: "m14.mp3" },
+      { id: 15, surah: "البقرة", from: 66, to: 70, src: "m15.mp3" },
+      { id: 16, surah: "البقرة", from: 71, to: 75, src: "m16.mp3" },
+      { id: 17, surah: "البقرة", from: 76, to: 80, src: "m17.mp3" },
+      { id: 18, surah: "البقرة", from: 81, to: 85, src: "m18.mp3" },
+      { id: 19, surah: "البقرة", from: 86, to: 90, src: "m19.mp3" },
+      { id: 20, surah: "البقرة", from: 91, to: 95, src: "m20.mp3" },
+      { id: 21, surah: "البقرة", from: 96, to: 100, src: "m21.mp3" },
+      { id: 22, surah: "البقرة", from: 101, to: 105, src: "m22.mp3" },
+      { id: 23, surah: "البقرة", from: 106, to: 110, src: "m23.mp3" },
+      { id: 24, surah: "البقرة", from: 111, to: 115, src: "m24.mp3" },
+      { id: 25, surah: "البقرة", from: 116, to: 120, src: "m25.mp3" },
+      { id: 26, surah: "البقرة", from: 121, to: 125, src: "m26.mp3" },
+      { id: 27, surah: "البقرة", from: 126, to: 130, src: "m27.mp3" },
+      { id: 28, surah: "البقرة", from: 131, to: 135, src: "m28.mp3" },
+      { id: 29, surah: "البقرة", from: 136, to: 140, src: "m29.mp3" },
+      { id: 30, surah: "البقرة", from: 141, to: 145, src: "m30.mp3" },
+      { id: 31, surah: "البقرة", from: 146, to: 150, src: "m31.mp3" },
+      { id: 32, surah: "البقرة", from: 151, to: 155, src: "m32.mp3" },
+      { id: 33, surah: "البقرة", from: 156, to: 160, src: "m33.mp3" },
+      { id: 34, surah: "البقرة", from: 161, to: 165, src: "m34.mp3" },
+      { id: 35, surah: "البقرة", from: 166, to: 170, src: "m35.mp3" },
+      { id: 36, surah: "البقرة", from: 171, to: 175, src: "m36.mp3" },
+      { id: 37, surah: "البقرة", from: 176, to: 180, src: "m37.mp3" },
+      { id: 38, surah: "البقرة", from: 181, to: 185, src: "m38.mp3" },
+      { id: 39, surah: "البقرة", from: 186, to: 190, src: "m39.mp3" },
+      { id: 40, surah: "البقرة", from: 191, to: 195, src: "m40.mp3" }
     ];
 
     // توليد غلاف SVG لكل سورة — لون أخضر/زيتي مع كتابتها
@@ -355,6 +401,8 @@
     const miniCover = document.getElementById('miniCover');
     const trackTitle = document.getElementById('trackTitle');
     const trackSub = document.getElementById('trackSub');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const closeBtn = document.getElementById('closeBtn');
 
     function fmtTime(s){
       if(!isFinite(s)) return '00:00';
@@ -375,12 +423,20 @@
       localStorage.setItem('quran.player.index', String(currentIndex));
     }
 
+    function showPlayer(){
+      audioPlayer.classList.add('show');
+    }
+
+    function hidePlayer(){
+      audioPlayer.classList.remove('show');
+    }
+
     function play(){
       audio.play().then(()=>{
         playIcon.outerHTML = `<svg id="playIcon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d='M6 5h4v14H6zM14 5h4v14h-4z'/></svg>`;
         highlightCurrent();
-      }).catch(err=>{
-        alert('تعذّر تشغيل الملف. تأكد من وجوده أو استبدل الرابط في المصفوفة.');
+        showPlayer();
+     
         console.warn(err);
       });
     }
@@ -392,6 +448,7 @@
     playBtn.addEventListener('click', ()=> audio.paused ? play() : pause());
     prevBtn.addEventListener('click', ()=>{ load(currentIndex-1); play(); scrollIntoViewCard(); });
     nextBtn.addEventListener('click', ()=>{ load(currentIndex+1); play(); scrollIntoViewCard(); });
+    closeBtn.addEventListener('click', ()=>{ pause(); hidePlayer(); });
 
     audio.addEventListener('loadedmetadata', ()=>{
       durationEl.textContent = fmtTime(audio.duration);
